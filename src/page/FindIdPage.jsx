@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import NavBar from '../components/common/NavBar';
+import { Form } from '../components/Form';
+import { FormItem } from '../components/FormItem';
 import { Button } from '../components/common/Button';
 import { Input } from '../components/common/Input';
-import { Form } from '../components/common/Form';
-import { FormItem } from '../components/common/FormItem';
+import '../styles/QnA.css';  // QnA 스타일 재사용
 import './FindId.css';
+import Header from "../components/common/Header";
+import NavBar from "../components/common/NavBar";
 
 const FindIdPage = () => {
     const [name, setName] = useState('');
@@ -28,24 +29,9 @@ const FindIdPage = () => {
 
     return (
         <div>
-            <header className="top-bar">
-                <Link to="/" className="logo">
-                    <span style={{color: '#26baa4'}}>🍴</span>다이닝코드
-                </Link>
-                <div className="right-section">
-                    <div className="search-bar-container">
-                        <div className="search-bar">
-                            <input type="text" placeholder="검색어를 입력하세요"/>
-                            <span className="search-icon">🔍</span>
-                        </div>
-                    </div>
-                    <Link to="/login" className="home-button">Login</Link>
-                </div>
-            </header>
-
-            <NavBar />
-
-            <div className="blue-banner">
+            <Header/>
+            <NavBar/>
+            <div className="qna-banner">
                 <h2>ID 찾기</h2>
             </div>
 
@@ -79,7 +65,11 @@ const FindIdPage = () => {
                                 required
                                 className="flex-grow"
                             />
-                            <Button type="button" onClick={handleSendVerificationCode}>
+                            <Button
+                                type="button"
+                                onClick={handleSendVerificationCode}
+                                className="verification-button"
+                            >
                                 인증번호 전송
                             </Button>
                         </FormItem>
@@ -92,11 +82,18 @@ const FindIdPage = () => {
                                 required
                                 className="flex-grow"
                             />
-                            <Button type="button" onClick={handleVerify}>
+                            <Button
+                                type="button"
+                                onClick={handleVerify}
+                                className="verification-button"
+                            >
                                 인증
                             </Button>
                         </FormItem>
-                        <Button type="submit" className="w-full">
+                        <Button
+                            type="submit"
+                            className="submit-button"
+                        >
                             ID 찾기
                         </Button>
                     </Form>

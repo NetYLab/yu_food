@@ -11,11 +11,11 @@ export const useQnAPosts = () => {
                 // TODO: Replace with actual API call
                 const samplePosts = [
                     {
-                        id: 36,
-                        title: "이거 어떻게 해요?",
+                        id: 1,
+                        title: "리뷰 작성 어떻게 하나요?",
                         author: "윤민서",
                         date: "2024.09.01",
-                        content: "React 공부 하고 있습니다",
+                        content: "리뷰 작성 어떻게 하나요?",
                         votes: 5,
                         views: 120
                     }

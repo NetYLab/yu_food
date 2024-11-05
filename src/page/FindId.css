@@ -1,31 +1,4 @@
 /* FindId.css */
-.page-container {
-    min-height: 100vh;
-    background-color: #f5f5f5;
-}
-
-.top-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #f8f8f8;
-}
-
-.blue-banner {
-    background-color: #00455b;
-    color: white;
-    padding: 40px 20px;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.blue-banner h2 {
-    font-size: 36px;
-    margin: 0;
-    color: white;
-}
-
 .content-area {
     max-width: 1200px;
     margin: 0 auto;
@@ -35,58 +8,55 @@
 .board-container {
     background-color: white;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     max-width: 600px;
     margin: 0 auto;
     padding: 30px;
 }
 
-/* Search bar styles */
-.right-section {
-    display: flex;
-    align-items: center;
-}
-
-.search-bar-container {
-    margin-right: 20px;
-}
-
-.search-bar {
-    display: flex;
-    align-items: center;
-    background-color: #f2f2f2;
-    border-radius: 20px;
-    padding: 5px 15px;
-}
-
-.search-bar input {
-    border: none;
-    background: transparent;
-    padding: 5px;
-    width: 200px;
-    outline: none;
-}
-
-.search-icon {
-    color: #888;
-    cursor: pointer;
-}
-
 /* Form styles */
 .flex {
     display: flex;
-}
-
-.gap-2 {
-    gap: 0.5rem;
+    gap: 1rem;
 }
 
 .flex-grow {
     flex-grow: 1;
 }
 
-.w-full {
+.verification-button {
+    background-color: #26baa4;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 120px;
+}
+
+.verification-button:hover {
+    background-color: #229e8a;
+    transform: translateY(-1px);
+}
+
+.submit-button {
     width: 100%;
+    background-color: #26baa4;
+    color: white;
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 1rem;
+}
+
+.submit-button:hover {
+    background-color: #229e8a;
+    transform: translateY(-1px);
 }
 
 /* Responsive design */
@@ -98,9 +68,10 @@
 
     .flex {
         flex-direction: column;
+        gap: 0.75rem;
     }
 
-    .gap-2 {
-        gap: 0.75rem;
+    .verification-button {
+        width: 100%;
     }
 }

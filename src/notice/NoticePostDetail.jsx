@@ -1,27 +1,40 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import './styles/QnA.css';
-import './styles/PostDetail.css'
-import Header from "./components/common/Header";
-import NavBar from "./components/common/NavBar";
+import Header from "../components/common/Header";
+import NavBar from "../components/common/NavBar";
 
-const PostDetail = () => {
+
+const NoticePostDetail = () => {
     const { id } = useParams();
     const [post, setPost] = useState(null);
 
     useEffect(() => {
         // 실제 API 호출로 대체해야 합니다
         const fetchPost = async () => {
-            const samplePost = {
+            const sampleNoticePost = {
                 id: id,
-                title: "리뷰 작성 어떻게 하나요?",
-                author: "윤민서",
-                date: "2024.09.01",
-                content: "리뷰 작성 어떻게 하나요?",
-                votes: 5,
-                views: 120
+                title: "시스템 점검 안내",
+                author: "관리자",
+                date: "2024.10.01",
+                content: `10월 5일 새벽 2시부터 4시까지 시스템 점검이 있을 예정입니다.
+                
+                ■ 점검 일시
+                2024년 10월 5일 새벽 2:00 ~ 4:00 (약 2시간)
+                
+                ■ 점검 내용
+                - 서버 안정화
+                - 보안 업데이트
+                - 시스템 최적화
+                
+                ■ 참고사항
+                - 점검 시간 동안 서비스 이용이 제한됩니다.
+                - 점검 완료 후 정상적으로 서비스 이용이 가능합니다.
+                
+                이용에 불편을 드려 죄송합니다.
+                더 나은 서비스를 제공하도록 하겠습니다.`,
+                views: 150
             };
-            setPost(samplePost);
+            setPost(sampleNoticePost);
         };
 
         fetchPost();
@@ -31,12 +44,12 @@ const PostDetail = () => {
 
     return (
         <div>
-            <Header />
-            <NavBar />
+            <Header/>
+            <NavBar/>
             <div className="qna-banner">
-                <h2>QnA</h2>
+                <h2>공지사항</h2>
                 <div className="qna-tag">
-                    글작성
+                    공지 작성
                 </div>
             </div>
 
@@ -54,17 +67,15 @@ const PostDetail = () => {
                             <span className="value">{post.date}</span>
                         </div>
                         <div className="info-item">
-                            <span className="label">추천</span>
-                            <span className="value">{post.votes}</span>
-                        </div>
-                        <div className="info-item">
                             <span className="label">조회수</span>
                             <span className="value">{post.views}</span>
                         </div>
                     </div>
 
                     <div className="post-content">
-                        {post.content}
+                        {post.content.split('\n').map((line, index) => (
+                            <p key={index}>{line}</p>
+                        ))}
                     </div>
 
                     <div className="button-container">
@@ -81,5 +92,4 @@ const PostDetail = () => {
     );
 };
 
-export default PostDetail;
-
+export default NoticePostDetail;

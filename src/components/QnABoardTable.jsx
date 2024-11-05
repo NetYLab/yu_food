@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export const QnABoardTable = ({ posts }) => {
+const QnABoardTable = ({ posts }) => {
     const navigate = useNavigate();
 
     const handleRowClick = (id) => {
@@ -23,11 +23,7 @@ export const QnABoardTable = ({ posts }) => {
                 </thead>
                 <tbody>
                 {posts.map((post) => (
-                    <tr
-                        key={post.id}
-                        onClick={() => handleRowClick(post.id)}
-                        className="clickable-row"
-                    >
+                    <tr key={post.id} onClick={() => handleRowClick(post.id)} className="clickable-row">
                         <td>{post.id}</td>
                         <td>{post.title}</td>
                         <td>{post.author}</td>
@@ -41,3 +37,5 @@ export const QnABoardTable = ({ posts }) => {
         </div>
     );
 };
+
+export default QnABoardTable;

@@ -1,42 +1,70 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { QnABoardTable } from './QnABoardTable';
+import { useNavigate } from 'react-router-dom';
 import { useQnAPosts } from '../hooks/useQnAPosts';
-import NavBar from '../components/common/NavBar';
-import SearchBar from '../components/SearchBar';
+import '../styles/QnA.css';
+import Header from "../components/common/Header";
+import NavBar from "../components/common/NavBar";
 
 const QnABoard = () => {
     const { posts, isLoading, error } = useQnAPosts();
+    const navigate = useNavigate();
 
-    if (isLoading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error.message}</div>;
+    if (isLoading) return (
+        <div className="board-wrapper">
+            <div className="loading">Loading...</div>
+        </div>
+    );
+
+    if (error) return (
+        <div className="board-wrapper">
+            <div className="error">Error: {error.message}</div>
+        </div>
+    );
 
     return (
-        <div className="qna-page">
-            <header className="top-bar">
-                <Link to="/" className="logo">
-                    <span className="logo-icon">🍴</span>
-                    <span className="logo-text">다이닝코드</span>
-                </Link>
-                <div className="right-section">
-                    <SearchBar />
-                    <Link to="/login" className="login-button">Login</Link>
-                </div>
-            </header>
-
+        <div>
+            <Header />
             <NavBar />
+            <div className="qna-banner">
+                <h2>QnA</h2>
+                <div
+                    className="qna-tag"
+                    onClick={() => navigate('/QnABoard/write')}
+                    style={{ cursor: 'pointer' }}
+                >
+                    글작성
+                </div>
+            </div>
 
-            <main className="main-content">
-                <div className="blue-banner">
-                    <h2>QnA</h2>
-                    <button className="button button-teal">
-                        글 작성
-                    </button>
+            <div className="board-wrapper">
+                <div className="board-container">
+                    <table className="board-table">
+                        <thead>
+                        <tr>
+                            <th className="col-number">번호</th>
+                            <th className="col-title">제목</th>
+                            <th className="col-author">작성자</th>
+                            <th className="col-date">작성일</th>
+                            <th className="col-views">조회</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {posts.map((post) => (
+                            <tr
+                                key={post.id}
+                                onClick={() => navigate(`/QnABoard/${post.id}`)}
+                            >
+                                <td>{post.id}</td>
+                                <td>{post.title}</td>
+                                <td>{post.author}</td>
+                                <td>{post.date}</td>
+                                <td>{post.views}</td>
+                            </tr>
+                        ))}
+                        </tbody>
+                    </table>
                 </div>
-                <div className="content-area">
-                    <QnABoardTable posts={posts} />
-                </div>
-            </main>
+            </div>
         </div>
     );
 };

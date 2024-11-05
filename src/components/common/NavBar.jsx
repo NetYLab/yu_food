@@ -1,18 +1,36 @@
-// NavBar.jsx
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import './NavBar.css';
 
 const NavBar = () => {
+    const location = useLocation();
+
     return (
-        <nav className="nav-menu">
-            <ul>
-                <li><NavLink to="/main" activeClassName="active">홈</NavLink></li>
-                <li><NavLink to="/notice" activeClassName="active">공지사항</NavLink></li>
-                <li><NavLink to="/QnABoard" activeClassName="active">QnA</NavLink></li>
-            </ul>
+        <nav className="navbar">
+            <div className="nav-container">
+                <div className="nav-links">
+                    <Link
+                        to="/main"
+                        className={location.pathname === '/main' ? 'active' : ''}
+                    >
+                        홈
+                    </Link>
+                    <Link
+                        to="/notice"
+                        className={location.pathname === '/notice' ? 'active' : ''}
+                    >
+                        공지사항
+                    </Link>
+                    <Link
+                        to="/QnABoard"
+                        className={location.pathname === '/QnABoard' ? 'active' : ''}
+                    >
+                        QnA
+                    </Link>
+                </div>
+            </div>
         </nav>
     );
 };
 
 export default NavBar;
-

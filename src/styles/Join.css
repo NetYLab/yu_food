@@ -1,0 +1,124 @@
+.join-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 30px;
+    max-width: 480px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background-color: #fff;
+}
+
+.join-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.join-form {
+    width: 100%;
+    margin-bottom: 30px;
+    padding: 0 20px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.input-wrapper {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.input-field {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.2s ease-in-out;
+    box-sizing: border-box;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #26a69a;
+    box-shadow: 0 0 0 2px rgba(38, 166, 154, 0.1);
+}
+
+.input-field::placeholder {
+    color: #aaa;
+}
+
+.input-field.error {
+    border-color: #ff6b6b;
+}
+
+.error-message {
+    color: #ff6b6b;
+    font-size: 12px;
+    margin-top: 6px;
+    padding-left: 4px;
+}
+
+.submit-button {
+    width: calc(100% - 40px);
+    padding: 14px;
+    background-color: #26a69a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.submit-button:hover:not(:disabled) {
+    background-color: #00897b;
+}
+
+.submit-button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+.login-links {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.login-links .link {
+    color: #666;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.login-links .link:hover {
+    color: #26a69a;
+}
+
+.login-links .divider {
+    color: #ddd;
+}
+
+/* 반응형 스타일 */
+@media screen and (max-width: 480px) {
+    .join-container {
+        padding: 20px;
+    }
+
+    .join-title {
+        font-size: 24px;
+    }
+}

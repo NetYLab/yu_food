@@ -4,11 +4,13 @@ import Login from "./page/Login.jsx";
 import Join from "./page/Join.jsx";
 import QnABoard from "./qna/QnABoard.jsx";
 import PostDetail from "./PostDetail.js";
+import NoticePostDetail from "./notice/NoticePostDetail.jsx"; // 경로 수정
 import Notice from "./Notice.jsx";
 import GhostLegApp from "./ghost-leg/App.js";
 import Signup from "./Sigup/signup";
 import FindIdPage from "./page/FindIdPage";
 import FindPasswordPage from "./page/FindPasswordPage";
+import { AuthProvider } from './contexts/AuthContext';
 
 function App() {
     return (
@@ -20,7 +22,8 @@ function App() {
                 <Route path="/QnABoard" element={<QnABoard />} />
                 <Route path="/QnABoard/:id" element={<PostDetail />} />
                 <Route path="/Notice" element={<Notice />} />
-                {/*<Route path="/FindIdPage" element={<FindIdPage />} />*/}
+                <Route path="/notice/:id" element={<NoticePostDetail />} />
+                <Route path="/FindIdPage" element={<FindIdPage />} />
                 <Route path="/FindPasswordPage" element={<FindPasswordPage />} />
             </Routes>
         </BrowserRouter>
